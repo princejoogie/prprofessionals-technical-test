@@ -8,6 +8,17 @@ datasource db {
 }
 
 model User {
-  id       String @id @default(uuid())
-  username String @unique
+  id       String        @id @default(uuid())
+  username String        @unique
+  history  Calculation[]
+}
+
+model Calculation {
+  id String @id @default(uuid())
+
+  expression String
+  result     String
+
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

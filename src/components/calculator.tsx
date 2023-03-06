@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 import useMeasure from "react-use-measure";
 
@@ -41,6 +42,7 @@ export const getAnswer = (formula: string): number | "Error" => {
 };
 
 export const Calculator = () => {
+  const router = useRouter();
   const [ref, { width }] = useMeasure();
   const [isError, setIsError] = useState(false);
   const [input, setInput] = useState("0");
@@ -96,6 +98,7 @@ export const Calculator = () => {
                     break;
                   }
                   case "history": {
+                    void router.push("/history");
                     break;
                   }
                 }
