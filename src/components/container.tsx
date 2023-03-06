@@ -26,7 +26,7 @@ export const Container = ({ children }: ContainerProps) => {
   return (
     <main className="flex h-screen flex-col px-2">
       <Navbar />
-      <div className="mx-auto mt-4 flex w-full max-w-3xl flex-1 flex-col overflow-y-auto rounded-t-3xl bg-primary-500">
+      <div className="hide-scrollbar mx-auto mt-4 flex w-full max-w-3xl flex-1 flex-col overflow-y-auto rounded-t-3xl bg-primary-500">
         {sessionData ? (
           children
         ) : (
