@@ -14,8 +14,8 @@ model User {
 }
 
 model Calculation {
-  id String @id @default(uuid())
-
+  id         String   @id @default(uuid())
+  createdAt  DateTime @default(now())
   expression String
   result     String
 

@@ -13,6 +13,10 @@ const History: NextPage = () => {
     enabled: !!session,
   });
 
+  const clearHistory = api.calculations.clear.useMutation({
+    onSuccess: () => history.refetch(),
+  });
+
   return (
     <>
       <Head>
@@ -35,7 +39,7 @@ const History: NextPage = () => {
               History
             </h3>
 
-            <button>Clear</button>
+            <button onClick={() => clearHistory.mutate()}>Clear</button>
           </div>
         </div>
 

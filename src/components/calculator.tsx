@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import useMeasure from "react-use-measure";
+import { api } from "~/utils/api";
 
 const buttons = [
   { id: "clear", value: "AC", color: "bg-primary-200", type: "function" },
@@ -48,6 +49,11 @@ export const Calculator = () => {
   const [input, setInput] = useState("0");
   const [prevInput, setPrevInput] = useState<string | null>(null);
 
+  const ctx = api.useContext();
+  const create = api.calculations.create.useMutation({
+    onSuccess: () => ctx.calculations.getAll.invalidate(),
+  });
+
   return (
     <div ref={ref} className="flex flex-1 flex-col">
       <div className="mt-10 p-8">
@@ -94,6 +100,11 @@ export const Calculator = () => {
                       setIsError(false);
                       setPrevInput(input);
                       setInput(ans.toString());
+
+                      create.mutate({
+                        expression: input,
+                        result: ans.toString(),
+                      });
                     }
                     break;
                   }
