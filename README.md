@@ -33,6 +33,16 @@ This application is deployed at [`calc.joogie.link`](https://calc.joogie.link/)
 
 - schema is defined in [`schema.prisma`](./prisma/schema.prisma)
 
+#### [postgres](https://www.postgresql.org/)
+
+- The instructions didn't explicitly mention using postgres but its connection details had a port `5432` which is the default postgres port.
+
+- The database is saved under `FSD_2022_JUGUILON`
+
+## How it works
+
+Initially, I was contemplating on whether to create a parser for the for the formula, checking if its valid and creating an AST based on the equation. `WARNING: this should not be done in a real application` but to keep things simple, I used the native [`eval`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval) function to test the equation. It throws an error when the given formula is invalid and returns an output otherwise.
+
 ---
 
 Created with ☕ by Prince Carlo Juguilon

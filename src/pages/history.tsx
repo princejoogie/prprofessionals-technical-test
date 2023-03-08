@@ -20,10 +20,10 @@ const History: NextPage = () => {
   return (
     <>
       <Head>
-        <title>PRPProfessionals Technical Exam | History</title>
+        <title>PRProfessionals Technical Exam | History</title>
         <meta
           name="description"
-          content="Technical exam for PRPProfessionals | History"
+          content="Technical exam for PRProfessionals | History"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -32,14 +32,16 @@ const History: NextPage = () => {
         <div className="flex flex-col">
           <div className="flex items-center justify-evenly px-6 py-10">
             <Link href="/" replace>
-              <p>Back</p>
+              <p className="w-20">Back</p>
             </Link>
 
             <h3 className="flex-1 text-center text-4xl font-semibold">
               History
             </h3>
 
-            <button onClick={() => clearHistory.mutate()}>Clear</button>
+            <button onClick={() => clearHistory.mutate()} className="w-20 text-end">
+              {clearHistory.isLoading ? "Clearing..." : "Clear"}
+            </button>
           </div>
         </div>
 

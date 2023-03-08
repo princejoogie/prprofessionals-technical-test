@@ -7,10 +7,10 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>PRPProfessionals Technical Exam</title>
+        <title>PRProfessionals Technical Exam</title>
         <meta
           name="description"
-          content="Technical exam for PRPProfessionals"
+          content="Technical exam for PRProfessionals"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
